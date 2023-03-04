@@ -1,0 +1,230 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>64</title>
+<script src="/lib/three.js/r79.js"></script>
+<style>
+body {
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	/* background-color: cyan; */
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>
+<body>
+<script>
+	window.queue = [];
+	window.addEventListener("message", function (e) {
+		if (e.data.type == "n64") {
+			window.queue.push(e.data);
+		}
+	});
+
+	var mouseX = 0, mouseY = 0;
+	window.addEventListener('mousemove', function (e) {
+		mouseX = e.clientX;
+		mouseY = e.clientY;
+	});
+	// ------------------------------------------------------
+	// Scene
+	// ------------------------------------------------------
+
+	const scene = new THREE.Scene();
+
+	// ------------------------------------------------------
+	// Camera
+	// ------------------------------------------------------
+
+	let fieldOfView = 75,
+		near = 0.1,
+		far = 400;
+
+	const camera = new THREE.PerspectiveCamera(fieldOfView, 1, near, far);
+	camera.position.z = 110;
+	scene.rotation.x = .45;
+	camera.position.y = -10;
+
+	// ------------------------------------------------------
+	// Mesh
+	// ------------------------------------------------------
+
+	const red = 0xfe2015,
+		blue = 0x011da9,
+		yellow = 0xffc001,
+		green = 0x069330,
+		cubeWidth = 20,
+		cubeHeight = 75,
+		transversalCubeHeight = 83,
+		cubeDepth = 20;
+
+	// cube color scheme 1
+	// ---------
+	const cubeGeometryColor1 = new THREE.BoxGeometry(cubeWidth, cubeHeight, cubeDepth);
+	cubeGeometryColor1.faces[0].color.setHex(blue);
+	cubeGeometryColor1.faces[1].color.setHex(blue);
+	cubeGeometryColor1.faces[2].color.setHex(blue);
+	cubeGeometryColor1.faces[3].color.setHex(blue);
+	cubeGeometryColor1.faces[4].color.setHex(yellow);
+	cubeGeometryColor1.faces[5].color.setHex(yellow);
+	cubeGeometryColor1.faces[6].color.setHex(yellow);
+	cubeGeometryColor1.faces[7].color.setHex(yellow);
+	cubeGeometryColor1.faces[8].color.setHex(green);
+	cubeGeometryColor1.faces[9].color.setHex(green);
+	cubeGeometryColor1.faces[10].color.setHex(green);
+	cubeGeometryColor1.faces[11].color.setHex(green);
+
+	// cube color scheme 2
+	// ---------
+	const cubeGeometryColor2 = new THREE.BoxGeometry(cubeWidth, 83, cubeDepth);
+	cubeGeometryColor2.faces[0].color.setHex(red);
+	cubeGeometryColor2.faces[1].color.setHex(red);
+	cubeGeometryColor2.faces[2].color.setHex(blue);
+	cubeGeometryColor2.faces[3].color.setHex(blue);
+	cubeGeometryColor2.faces[4].color.setHex(yellow);
+	cubeGeometryColor2.faces[5].color.setHex(yellow);
+	cubeGeometryColor2.faces[6].color.setHex(yellow);
+	cubeGeometryColor2.faces[7].color.setHex(yellow);
+	cubeGeometryColor2.faces[8].color.setHex(green);
+	cubeGeometryColor2.faces[9].color.setHex(green);
+	cubeGeometryColor2.faces[10].color.setHex(green);
+	cubeGeometryColor2.faces[11].color.setHex(green);
+
+	// cube color scheme 3
+	// ---------
+	const cubeGeometryColor3 = new THREE.BoxGeometry(cubeWidth, 83, cubeDepth);
+	cubeGeometryColor3.faces[0].color.setHex(blue);
+	cubeGeometryColor3.faces[1].color.setHex(blue);
+	cubeGeometryColor3.faces[2].color.setHex(blue);
+	cubeGeometryColor3.faces[3].color.setHex(blue);
+	cubeGeometryColor3.faces[4].color.setHex(yellow);
+	cubeGeometryColor3.faces[5].color.setHex(yellow);
+	cubeGeometryColor3.faces[6].color.setHex(yellow);
+	cubeGeometryColor3.faces[7].color.setHex(yellow);
+	cubeGeometryColor3.faces[8].color.setHex(red);
+	cubeGeometryColor3.faces[9].color.setHex(red);
+	cubeGeometryColor3.faces[10].color.setHex(green);
+	cubeGeometryColor3.faces[11].color.setHex(green);
+
+	// Default material
+	// ---------
+	const cubeMaterial = new THREE.MeshBasicMaterial({
+		vertexColors: THREE.FaceColors
+	});
+
+	// All mesh
+	// ---------
+	const nintendoCube1 = new THREE.Mesh(cubeGeometryColor1, cubeMaterial);
+	const nintendoCube2 = new THREE.Mesh(cubeGeometryColor1, cubeMaterial);
+	const nintendoCube3 = new THREE.Mesh(cubeGeometryColor1, cubeMaterial);
+	const nintendoCube4 = new THREE.Mesh(cubeGeometryColor1, cubeMaterial);
+	const nintendoCube5 = new THREE.Mesh(cubeGeometryColor2, cubeMaterial);
+	const nintendoCube6 = new THREE.Mesh(cubeGeometryColor2, cubeMaterial);
+	const nintendoCube7 = new THREE.Mesh(cubeGeometryColor3, cubeMaterial);
+	const nintendoCube8 = new THREE.Mesh(cubeGeometryColor3, cubeMaterial);
+
+	// ------------------------------------------------------
+	// Add to scense
+	// ------------------------------------------------------
+
+	scene.add(
+		nintendoCube1,
+		nintendoCube2,
+		nintendoCube3,
+		nintendoCube4,
+		nintendoCube5,
+		nintendoCube6,
+		nintendoCube7,
+		nintendoCube8
+	);
+
+	// ------------------------------------------------------
+	// render
+	// ------------------------------------------------------
+
+	const renderer = new THREE.WebGLRenderer({
+		antialias: true,
+		alpha: true
+	});
+
+	function setRendererProps() {
+		var minDimension = Math.min(window.innerWidth, window.innerHeight);
+		renderer.setSize(minDimension, minDimension);
+	}
+	setRendererProps();
+	document.body.appendChild(renderer.domElement);
+
+	var lastUpdateTime = Date.now();
+	let rotation = 0;
+	let lastX = 0;
+	let lastY = 0;
+
+	function setCubePositions() {
+		nintendoCube1.position.set(-30, 0, 30);
+		nintendoCube2.position.set(30, 0, 30);
+		nintendoCube3.position.set(-30, 0, -30);
+		nintendoCube4.position.set(30, 0, -30);
+
+		nintendoCube5.position.set(0, 0, 30);
+		nintendoCube5.rotation.z = 0.73;
+
+		nintendoCube6.position.set(0, 0, -30);
+		nintendoCube6.rotation.z = 2.41;
+
+		nintendoCube7.position.set(-30, 0, 0);
+		nintendoCube7.rotation.x = 2.41;
+
+		nintendoCube8.position.set(30, 0, 0);
+		nintendoCube8.rotation.x = 0.73;
+	}
+
+	const render = () => {
+		requestAnimationFrame(render);
+
+		setCubePositions();
+		
+		var elapsed = Date.now() - lastUpdateTime;
+		lastUpdateTime = Date.now();
+
+		// rotate at 1 rad per second
+		rotation += elapsed / 1000;
+		if (rotation > 2 * Math.PI) {
+			rotation -= 2 * Math.PI;
+		}
+
+		// point scene rotation at mouse cursor
+		var len = queue.length;
+		var invLen = len ? 1 / len : 0;
+		var movementX = 0;
+		var movementY = 0;
+
+		// console.log(queue.length);
+		// Seems to only ever be 1
+
+		while (queue.length) {
+			var message = queue.pop();
+			movementX += message.dx;
+			movementY += message.dy;
+			lastX = message.x;
+			lastY = message.y;
+		}
+		movementX *= invLen;
+		movementY *= invLen;
+
+		// looking up and down
+		scene.rotation.x = lastY;
+		
+		rotation += movementX * elapsed / 1000;
+		
+		scene.rotation.y = rotation;
+
+		setRendererProps();
+		renderer.render(scene, camera);
+	};
+
+	render();
+
+</script>
