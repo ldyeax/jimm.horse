@@ -12,7 +12,7 @@ https://derpibooru.org/search?q=oc%3Aannie%20vorechine
 <canvas id=annie></canvas>
 <script type=module>
 import Matrix from "/lib/matrix.js";
-Matrix({
+new Matrix({
     canvas: document.getElementById("annie"),
     imageUrl: "/img/annie_green.png",
     fullscreen: true
