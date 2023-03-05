@@ -11,7 +11,7 @@ https://derpibooru.org/search?q=oc%3Aannie%20vorechine
 <body>
 <canvas id=annie></canvas>
 <script type=module>
-import Matrix from "https://raw.githubusercontent.com/ldyeax/Fill-In-Matrix-Effect/main/matrix.js";
+import Matrix from "/lib/matrix.js";
 Matrix({
     canvas: document.getElementById("annie"),
     imageUrl: "/img/annie_green.png",
