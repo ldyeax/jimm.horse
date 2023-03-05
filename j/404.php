@@ -8,6 +8,13 @@ https://derpibooru.org/search?q=oc%3Aannie%20vorechine
 -->
 <meta charset=utf-8>
 <title>404</title>
+<style>
+html, body {
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	overflow: hidden;
+}
+</style>
 <body>
 <canvas id=annie></canvas>
 <script type=module>
