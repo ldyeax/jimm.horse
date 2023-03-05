@@ -2,6 +2,10 @@
 header("HTTP/1.0 404 Not Found");
 ?>
 <!doctype html>
+<!--
+Annie Vorchine credit Tiny Jasmini
+https://derpibooru.org/search?q=oc%3Aannie%20vorechine
+-->
 <meta charset=utf-8>
 <title>404</title>
 <body>
