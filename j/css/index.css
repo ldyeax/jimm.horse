@@ -1,0 +1,25 @@
+#homepage { text-align:center; }
+#overlay1 {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+	margin-left:auto;
+	margin-right:auto;
+}
+#overlay2 {
+	background-image:url("/img/20221118_overlay_2.png");
+	background-size:cover;
+	background-attachment:fixed;
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	z-index:2;
+}
+@media only screen and (max-width: 1920px) {
+	#overlay2 { background-image:url("/img/20221118_1920_overlay_2.png"); }
+}
