@@ -8,6 +8,7 @@ body {
 	background-image:url("/img/20221118.jpg");
 	background-size:cover;
 	background-attachment:fixed;
+	background-position:center;
 }
 @media only screen and (max-width: 1920px) {
 	body { background-image:url("/img/20221118_1920.jpg"); }
