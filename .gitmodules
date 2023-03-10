@@ -1,3 +1,6 @@
-[submodule "maze"]
-	path = maze
-	url = ./maze
+[submodule "lib/MazeEngine"]
+	path = lib/MazeEngine
+	url = git@github.com:ldyeax/MazeEngine.git
+[submodule "lib/Fill-In-Matrix-Effect"]
+	path = lib/Fill-In-Matrix-Effect
+	url = git@github.com:ldyeax/Fill-In-Matrix-Effect.git
