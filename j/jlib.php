@@ -1,6 +1,12 @@
 <?php
 
 #region LESS
+
+// Ensure $jroot/css exists
+if (!file_exists("$jroot/css")) {
+	mkdir("$jroot/css");
+}
+
 require "lessphp/lessc.inc.php";
 
 $formatter = new \lessc_formatter_classic;
