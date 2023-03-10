@@ -21,8 +21,8 @@ html, body {
 <script type=module>
 import Matrix from "/lib/Fill-In-Matrix-Effect/matrix.js";
 new Matrix({
-    canvas: document.getElementById("annie"),
-    imageUrl: "/img/annie_green.png",
-    fullscreen: true
+	canvas: document.getElementById("annie"),
+	imageUrl: "/img/annie_green.png",
+	fullscreen: true
 });
 </script>

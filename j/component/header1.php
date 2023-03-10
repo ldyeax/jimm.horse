@@ -30,16 +30,31 @@ oxkkkkOkddkkkkdooooolllccc::::ldxkkOOOO0KKKKKKKKXXXK0kdoc::::cllodxxdooooollccll
 ;::;;;;::clodxxdxkkddxxxxkkOkxdolc:;,'',''',,:dxdolc;,'..',;:coxkO0KK0OO00O000OkOOkdoc:;,'''',,,,,,,
 -->
 <meta charset=utf-8>
-<?php css("header"); ?>
-
-<script type="module">
-	import {n64} from "/n64/n64.js";
-	window.addEventListener("load", function() {
-		n64({
-			iframe_src: "/n64/n64.html",
-			width: 150,
-			height: 150
-		});
-	});
+<script>
+window.addEventListener("load", function() {
+	// todo: more general
+	let areas = document.querySelectorAll(`area[shape="poly"]`);
+	for (let area of areas) {
+		let name = area.parentElement.getAttribute("name");
+		let img = document.querySelector(`img[usemap="#${name}"]`);
+		let coords = area.getAttribute("coords").split(",");
+		let imgWiddth = img.width;
+		let imgHeight = img.height;
+		let naturalWidth = img.naturalWidth;
+		let naturalHeight = img.naturalHeight;
+		let xRatio = imgWiddth / naturalWidth;
+		let yRatio = imgHeight / naturalHeight;
+		let newCoords = "";
+		for (let i = 0; i < coords.length; i += 2) {
+			newCoords += parseInt(coords[i]) * xRatio;
+			newCoords += ",";
+			newCoords += parseInt(coords[i + 1]) * yRatio;
+			if (i < coords.length - 2) {
+				newCoords += ",";
+			}
+		}
+		area.setAttribute("coords", newCoords);
+	}
+});
 </script>
-
+<?php css("header"); ?>

@@ -16,6 +16,7 @@ body {
 }
 </style>
 <body>
+
 <script>
 	window.queue = [];
 	window.addEventListener("message", function (e) {
@@ -46,7 +47,7 @@ body {
 	const camera = new THREE.PerspectiveCamera(fieldOfView, 1, near, far);
 	camera.position.z = 110;
 	scene.rotation.x = .45;
-	camera.position.y = -10;
+	camera.position.y = 0;
 
 	// ------------------------------------------------------
 	// Mesh
