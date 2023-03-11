@@ -1,6 +1,11 @@
-<script type=module src="/j/page/n64/n64.js"></script>
 <div id=n64Icon class=js-n64 data-n64-width=150 data-n64-height=150></div>
-<a href="/n64">
+<script>
+function n64Icon_click() {
+	j("n64");
+	return false;
+}
+</script>
+<a href="/n64" onclick="return n64Icon_click()">
 	<div id=n64IconLink style="position: absolute; z-index:5; top: 0; left: 0; height: 150px; width: 150px;"></div>
 </a>
 <script>
@@ -12,4 +17,8 @@ function updateN64Icon() {
 	requestAnimationFrame(updateN64Icon);
 }
 updateN64Icon();
+</script>
+<script type=module>
+	import {n64} from "/lib/n64/n64.js";
+	n64();
 </script>

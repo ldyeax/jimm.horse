@@ -1,5 +1,7 @@
 <?php
 header("HTTP/1.0 404 Not Found");
+global $requestingJson;
+if (!$requestingJson) {
 ?>
 <!doctype html>
 <!--
@@ -26,3 +28,6 @@ new Matrix({
 	fullscreen: true
 });
 </script>
+<?php
+}
+?>

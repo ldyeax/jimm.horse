@@ -1,1 +1,1 @@
-<title>Welcome</title>
+<title class="jHeader" >Welcome</title>
