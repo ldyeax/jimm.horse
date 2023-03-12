@@ -43,4 +43,14 @@ function css($name) {
 	echo "</style>";
 }
 
+function scaleImageMap($imageMap, $xScale, $yScale) {
+	$values = explode(",", $imageMap);
+	$len = count($values);
+	for ($i = 0; $i < $len; $i++) {
+		$values[$i] = round($values[$i] * $xScale);
+		$values[++$i] = round($values[$i] * $yScale);
+	}
+	return implode(",", $values);
+}
+
 ?>

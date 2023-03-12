@@ -35,7 +35,11 @@ window.addEventListener("load", function() {
 	// todo: more general
 	let areas = document.querySelectorAll(`area[shape="poly"]`);
 	for (let area of areas) {
-		let name = area.parentElement.getAttribute("name");
+		let parent = area.parentElement;
+		if (parent.dataset.scaled) {
+			continue;
+		}
+		let name = parent.getAttribute("name");
 		let img = document.querySelector(`img[usemap="#${name}"]`);
 		let coords = area.getAttribute("coords").split(",");
 		let imgWiddth = img.width;
