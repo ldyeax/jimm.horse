@@ -74,6 +74,8 @@ body, html {
 	font-family: "Celestia Medium Redux";
 	font-size: 2em;
 	color: #6C53D2;
+	backdrop-filter: blur(15px);
+	border-radius: 15px;
 }
 
 </style>
@@ -114,7 +116,7 @@ let maze = new MazeEngine({
 		loadingTextDiv.innerHTML = Math.floor(part / whole * 100) + "%";
 	},
 	loadingFinishedFunction: () => {
-		loadingContainer.parentElement.removeChild(loadingContainer);
+		loadingTextDiv.innerHTML = "Controls: WASD or touch";
 	}
 });
 
@@ -139,6 +141,10 @@ for (let i = 0; i < mares.length; i++) {
 ImageAsset.shader = shader;
 
 await maze.loadAssets();
-maze.instantiate(Scene);
+maze.instantiate(Scene, {
+	onMusicStarted: () => {
+		loadingContainer.removeChild(loadingTextDiv);
+	}
+});
 maze.start(document.getElementById("maremuseum"));
 </script>
