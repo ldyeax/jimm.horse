@@ -65,7 +65,7 @@ if (!window.maremuseuminterval) {
 			if (window.maremuseummousey < window.innerHeight - 150) {
 				opacity = 0;
 			} else {
-				console.log(window.maremuseummousey);
+				//console.log(window.maremuseummousey);
 			}
 		}
 		document.getElementById("footer").style.opacity = opacity;
