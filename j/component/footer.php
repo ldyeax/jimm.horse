@@ -12,10 +12,15 @@
 		$iconPath = "$jroot/page/$file/icon.php";
 		if (file_exists($iconPath)) {
 			echo "\n";
-			echo "<div class=icon>\n";
+			echo "\t<div class=icon>\n\n";
 			require $iconPath;
-			echo "</div>\n";
+			echo "\n\n\t</div>\n";
 		}
 	}
 ?>
+	<div class=icon>
+		<a href="https://twitter.com/JimmJamme/">
+			<img src="/img/CLIPLY_372109260_TWITTER_LOGO_400.gif" alt="Twitter" height=150 longdesc="https://cliply.co/clip/twitter-logo/">
+		</a>
+	</div>
 </footer>
