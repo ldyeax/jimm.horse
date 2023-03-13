@@ -1,0 +1,144 @@
+<!doctype html>
+<meta charset=utf-8>
+
+<!--
+Credits (incomplete):
+
+Special thanks to Lunar Harmony for the original Mare Museum: https://www.youtube.com/watch?v=p00FDbiD-5g (contains hidden NSFW)
+
+https://derpibooru.org/images/2970137?q=oc%3Atiny+jasmini
+https://derpibooru.org/images/2646488?q=oc%3Atiny+jasmini
+https://derpibooru.org/images/1994967?q=oc%3Atiny+jasmini
+
+
+https://maremaremaremaremaremare.com/marefiles/EarthCube.jpg
+
+https://derpibooru.org/images/2639330?q=rainbowshining
+
+https://knowyourmeme.com/photos/1183103-my-little-pony-friendship-is-magic
+
+https://www.facebook.com/575372246168033/photos/im-gonna-take-my-horse-to-the-hotel-room-and-err/801929876845601/?paipv=0&eav=AfaykykfIH7IL-xdyO5cFaiMETrcuxMOEg7fUWYG-61IlCF3k12dvGJQB8N7qUVwebo&_rdr
+
+https://pony.tube/lazy-static/previews/e2eb94bf-bf90-4427-b002-94ae60bbcaf5.jpg (only place I could find the Verity image)
+
+https://derpibooru.org/images/1733640?q=berryshine%2Cgameloft
+
+https://derpibooru.org/images/1092588?q=looking+at+you%2Cminuette%2Csolo%2Csafe%2C-anthro%2C-food%2C-human
+
+https://derpibooru.org/images/2593878?q=amending+fences%2Cscreencap%2Cminuette%2Cfood%2Ctwinkleshine%2Clemon+hearts
+
+https://twitter.com/orchidpony/status/1487877725960425472/photo/1
+
+https://derpibooru.org/images/1380914?q=linky%2Csolo%2Chappy
+
+https://www.deviantart.com/plainoasis/art/Moon-creek-857870188
+
+https://derpibooru.org/images/36980
+
+-->
+
+<title>Mare Museum</title>
+<body>
+<style>
+body, html {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	overflow: hidden;
+}
+#maremuseum {
+	width: 100%;
+	height: 100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+#loading-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+/* import font from ./asset/Celestia-Medium-Redux.ttf */
+@font-face {
+	font-family: "Celestia Medium Redux";
+	src: url("/lib/maremuseum/asset/Celestia-Medium-Redux.ttf.woff");
+}
+
+#loading-text {
+	font-family: "Celestia Medium Redux";
+	font-size: 2em;
+	color: #6C53D2;
+}
+
+</style>
+<script type=importmap>
+{
+	"imports": {
+		"three": "../../../lib/MazeEngine/three/Three.js",
+		"three_examples/": "../../../lib/MazeEngine/three_examples/",
+		"assets/": "../../../lib/MazeEngine/assets/",
+		"engine/": "../../../lib/MazeEngine/engine/",
+		"asset/": "../../../lib/MazeEngine/engine/asset/",
+		"mazeobject/": "../../../lib/MazeEngine/engine/mazeobject/",
+		"mazescript/": "../../../lib/MazeEngine/engine/mazescript/",
+		"shader/": "../../../lib/MazeEngine/engine/shader/",
+		"scene/": "../../../lib/MazeEngine/scene/"
+	}
+}
+</script>
+<div id=loading-container>
+	<div id=loading-text>Loading<br>Controls: WASD</div>
+</div>
+<canvas id=maremuseum></canvas>
+<script type=module>
+import MazeEngine from "engine/mazeengine.js";
+import Maze from "mazeobject/maze.js";
+import Scene from "./scene/maremuseum.js";
+import ImageAsset from "engine/asset/imageasset.js";
+import shader from "shader/littexture1.js";
+
+ImageAsset.shader = shader;
+
+let loadingTextDiv = document.getElementById("loading-text");
+let loadingContainer = document.getElementById("loading-container");
+
+let maze = new MazeEngine({
+	pathRoot: "/lib/MazeEngine/",
+	progressFunction: (part, whole) => {
+		loadingTextDiv.innerHTML = Math.floor(part / whole * 100) + "%";
+	},
+	loadingFinishedFunction: () => {
+		loadingContainer.parentElement.removeChild(loadingContainer);
+	}
+});
+
+maze.assets.ending1 = new ImageAsset("/lib/maremuseum/asset/ending1.png");
+maze.assets.ending2 = new ImageAsset("/lib/maremuseum/asset/ending2.png");
+maze.assets.ending3 = new ImageAsset("/lib/maremuseum/asset/ending3.png");
+
+let mareJsonUrl = "/lib/maremuseum/mares.php";
+let fetchMares = await fetch(mareJsonUrl);
+let maresJson = await fetchMares.json();
+let mares = maresJson.mares.sort((a, b) => 0.5 - Math.random());
+
+ImageAsset.shader = "MeshStandardMaterial";
+
+maze.assets["cutemare1"] = new ImageAsset("/lib/maremuseum/asset/cutemare1.jpg");
+maze.assets["cutemare2"] = new ImageAsset("/lib/maremuseum/asset/cutemare2.jpg");
+
+for (let i = 0; i < mares.length; i++) {
+	maze.assets["mare_" + i] = new ImageAsset("/lib/maremuseum/asset/mares/" + mares[i]);
+}
+
+ImageAsset.shader = shader;
+
+await maze.loadAssets();
+maze.instantiate(Scene);
+maze.start(document.getElementById("maremuseum"));
+</script>
