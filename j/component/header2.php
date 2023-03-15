@@ -1,4 +1,4 @@
 <body>
-<header id=header>
-</header>
+<!-- <header id=header>
+</header> -->
 <div id=body>
