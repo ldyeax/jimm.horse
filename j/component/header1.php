@@ -31,35 +31,35 @@ oxkkkkOkddkkkkdooooolllccc::::ldxkkOOOO0KKKKKKKKXXXK0kdoc::::cllodxxdooooollccll
 -->
 <meta charset=utf-8>
 <script>
-window.addEventListener("load", function() {
-	// todo: more general
-	let areas = document.querySelectorAll(`area[shape="poly"]`);
-	for (let area of areas) {
-		let parent = area.parentElement;
-		if (parent.dataset.scaled) {
-			continue;
-		}
-		let name = parent.getAttribute("name");
-		let img = document.querySelector(`img[usemap="#${name}"]`);
-		let coords = area.getAttribute("coords").split(",");
-		let imgWiddth = img.width;
-		let imgHeight = img.height;
-		let naturalWidth = img.naturalWidth;
-		let naturalHeight = img.naturalHeight;
-		let xRatio = imgWiddth / naturalWidth;
-		let yRatio = imgHeight / naturalHeight;
-		let newCoords = "";
-		for (let i = 0; i < coords.length; i += 2) {
-			newCoords += parseInt(coords[i]) * xRatio;
-			newCoords += ",";
-			newCoords += parseInt(coords[i + 1]) * yRatio;
-			if (i < coords.length - 2) {
-				newCoords += ",";
-			}
-		}
-		area.setAttribute("coords", newCoords);
-	}
-});
+// window.addEventListener("load", function() {
+// 	// todo: more general
+// 	let areas = document.querySelectorAll(`area[shape="poly"]`);
+// 	for (let area of areas) {
+// 		let parent = area.parentElement;
+// 		if (parent.dataset.scaled) {
+// 			continue;
+// 		}
+// 		let name = parent.getAttribute("name");
+// 		let img = document.querySelector(`img[usemap="#${name}"]`);
+// 		let coords = area.getAttribute("coords").split(",");
+// 		let imgWiddth = img.width;
+// 		let imgHeight = img.height;
+// 		let naturalWidth = img.naturalWidth;
+// 		let naturalHeight = img.naturalHeight;
+// 		let xRatio = imgWiddth / naturalWidth;
+// 		let yRatio = imgHeight / naturalHeight;
+// 		let newCoords = "";
+// 		for (let i = 0; i < coords.length; i += 2) {
+// 			newCoords += parseInt(coords[i]) * xRatio;
+// 			newCoords += ",";
+// 			newCoords += parseInt(coords[i + 1]) * yRatio;
+// 			if (i < coords.length - 2) {
+// 				newCoords += ",";
+// 			}
+// 		}
+// 		area.setAttribute("coords", newCoords);
+// 	}
+// });
 
 function resolvePageName(pageName) {
 	while (pageName.length > 0 && pageName[0] == "/") {
