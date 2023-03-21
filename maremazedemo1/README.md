@@ -1,2 +1,3 @@
 # maze
-Windows 98 inspired maze game for web browsers
+
+Old demo of [MazeEngine](https://github.com/ldyeax/MazeEngine/) with spinning mares
