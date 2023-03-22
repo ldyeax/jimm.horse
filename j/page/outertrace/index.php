@@ -10,13 +10,11 @@ canvas {
 	image-rendering:-o-crisp-edges;
 	background-color: white;
 }
-#input {
-	display: none;
-}
+
 </style>
 <canvas id=input></canvas>
 <canvas id=output></canvas>
-<img id="imageMapSrc" src="/img/jimm.png" usemap="#outputMap" width=256>
+<img id="imageMapSrc" src="/img/twitter_150_for_imagemap.png" usemap="#outputMap" width=256>
 <map name="outputMap">
     <area id="area" shape="poly" coords="0,0,10,0,10,10" alt="Test" href="/">
 </map>
@@ -40,7 +38,8 @@ ctxOut.webkitImageSmoothingEnabled = false;
 
 
 async function test() {
-    img.width = 256;
+    img.width = 150;
+	img.height = 150;
 
     let ratio = img.width / img.naturalWidth;
     img.height = parseInt(img.naturalHeight * ratio);
@@ -54,11 +53,10 @@ async function test() {
     ctxIn.drawImage(img, 0, 0, img.width, img.height);
 
     let tracer = new Tracer(ctxIn, ctxOut);
-	await tracer.calculate();
-    let output = tracer.output;
+	let output = await tracer.calculatePolygon(true);
 
     let s = "";
-    for (let i = 0; i < output.length; i++) { 
+    for (let i = 0; i < output.length; i+=4) { 
         s += output[i].x
         s += ",";
         s += output[i].y
