@@ -7,6 +7,6 @@ css("popup");
 </div>
 <script>
 document.getElementById("pipp").onclick = function() {
-	window.open("/lib/popup/", "pipp", "width=564,height=332");
+	window.open("/lib/popup/", "pipp", "width=564,height=332").args = {screenWidth: window.innerWidth, screenHeight: window.innerHeight, width: 564, height: 332};
 };
 </script>

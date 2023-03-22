@@ -13,15 +13,54 @@ body{
 <body>
 
 <script>
+let defaultArgs = {
+	screenWidth: 800,
+	screenHeight: 600,
+	width: 564,
+	height: 332
+};
 
-let phase = Math.random() * 1000;
+let args = window.args || {};
+
+args = Object.assign(defaultArgs, args);
+
+// let phase = Math.random() * 1000;
+
+let x = 0;
+let y = 0;
+let dx = 1;
+let dy = 1;
+
+let maxX = args.screenWidth - args.width;
+let maxY = args.screenHeight - args.height;
 
 function animate() {
 	let t = performance.now();
 	let a = Math.PI * 2 / 10000;
-	console.log(t * a);
-	let x = Math.sin(phase + t * a * 2) * 300 + 300;
-	let y = Math.cos(phase + t * a) * 200 + 200;
+
+	// console.log(t * a);
+	// let x = Math.sin(phase + t * a * 2) * 300 + 300;
+	// let y = Math.cos(phase + t * a) * 200 + 200;
+
+	if (x > maxX) {
+		dx = -1;
+	}
+	if (x < 0) {
+		dx = 1;
+	}
+	if (y > maxY) {
+		dy = -1;
+	}
+	if (y < 0) {
+		dy = 1;
+	}
+
+	x += dx;
+	y += dy;
+
+	x += dx * 2 * Math.cos(t * a * 2);
+	y += dy * Math.abs(Math.sin(t * a));
+
 	window.moveTo(parseInt(x), parseInt(y));
 	requestAnimationFrame(animate);
 }

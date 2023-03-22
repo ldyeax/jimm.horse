@@ -134,5 +134,15 @@ window.onpopstate = function(event) {
 	}
 };
 
+window.addEventListener("load", function() {
+	let jPageLinks = document.querySelectorAll("[data-j]");
+	for (let link of jPageLinks) {
+		link.onclick = function() {
+			j(link.getAttribute("href").substring(1));
+			return false;
+		}
+	}
+});
+
 </script>
 <?php css("header"); ?>

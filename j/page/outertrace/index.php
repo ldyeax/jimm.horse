@@ -14,7 +14,7 @@ canvas {
 </style>
 <canvas id=input></canvas>
 <canvas id=output></canvas>
-<img id="imageMapSrc" src="/img/twitter_150_for_imagemap.png" usemap="#outputMap" width=256>
+<img id="imageMapSrc" src="/img/pipp_icon_for_imagemap.png" usemap="#outputMap">
 <map name="outputMap">
     <area id="area" shape="poly" coords="0,0,10,0,10,10" alt="Test" href="/">
 </map>
@@ -38,11 +38,8 @@ ctxOut.webkitImageSmoothingEnabled = false;
 
 
 async function test() {
-    img.width = 150;
+	img.width = 209;
 	img.height = 150;
-
-    let ratio = img.width / img.naturalWidth;
-    img.height = parseInt(img.naturalHeight * ratio);
 
     cnvInput.width = img.width;
     cnvInput.height = img.height;
