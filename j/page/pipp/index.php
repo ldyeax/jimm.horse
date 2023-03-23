@@ -8,7 +8,7 @@ css("popup");
 			<div class="bar" style="width: 282px;">
 				<p>Please send me $ 20 dollat</p>
 			</div>
-			<iframe id=pippiframe src="/lib/popup/404" width=282 height=166 style="position: absolute; top: 24px;"></iframe>
+			<iframe id=pippiframe src="/lib/popup/" width=282 height=166 style="position: absolute; top: 24px;"></iframe>
 		</div>
 	</div>
 </div>
