@@ -11,7 +11,9 @@ body{
 </style>
 <title>Please send me $ 20 dollat</title>
 <body>
-
+<a id=link href="https://twitter.com/keryot/status/1614051474795008005?t=UalnZ0mpPm5R3N6tIHJi2w&s=19">
+	<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+</a>
 <script>
 let defaultArgs = {
 	screenWidth: 800,
@@ -20,16 +22,19 @@ let defaultArgs = {
 	height: 332
 };
 
+let link = document.getElementById("link");
 
-	// let phase = Math.random() * 1000;
+// let phase = Math.random() * 1000;
 
-	let x = 0;
-	let y = 0;
-	let dx = 1;
-	let dy = 1;
+let x = 0;
+let y = 0;
+let dx = 1;
+let dy = 1;
+
+window.args = window.args || defaultArgs;
 
 function animate() {
-	let args = Object.assign(defaultArgs, window.args || {});
+	window.args = Object.assign(defaultArgs, window.args || {});
 
 	let maxX = args.screenWidth - args.width;
 	let maxY = args.screenHeight - args.height;
@@ -62,13 +67,18 @@ function animate() {
 
 	if (args.iframe) {
 		window.parent.postMessage({x: x, y: y, pipp: "petals"}, "*");
+		link.href = "#";
 	} else {
 		window.moveTo(parseInt(x), parseInt(y));
 	}
 	requestAnimationFrame(animate);
 }
 animate();
+
+document.getElementById("link").addEventListener("click", function(e) {
+	if (window.args.iframe) {
+		window.parent.postMessage({"pippdirect": "https://twitter.com/keryot/status/1614051474795008005?t=UalnZ0mpPm5R3N6tIHJi2w&s=19"});
+	}
+});
+
 </script>
-<a href="https://twitter.com/keryot/status/1614051474795008005?t=UalnZ0mpPm5R3N6tIHJi2w&s=19">
-	<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-</a>

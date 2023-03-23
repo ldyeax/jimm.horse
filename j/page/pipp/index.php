@@ -7,11 +7,8 @@ css("popup");
 		<div class="win98popup shadow" style="width: 292px; height: 195px;">
 			<div class="bar" style="width: 282px;">
 				<p>Please send me $ 20 dollat</p>
-				<button class="shadow">
-				<svg xmlns="http://www.w3.org/2000/svg" width="8px" height="7px" viewBox="0 0 8 7" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M1 6V5h1V4h1V3h2v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1zm0-4V1H0V0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H2V2H1z"/></svg>
-				</button>
 			</div>
-			<iframe id=pippiframe src="/lib/popup" width=282 height=166 style="position: absolute; top: 24px;"></iframe>
+			<iframe id=pippiframe src="/lib/popup/404" width=282 height=166 style="position: absolute; top: 24px;"></iframe>
 		</div>
 	</div>
 </div>
@@ -33,6 +30,9 @@ document.getElementById("pipp").onclick = function() {
 			if (event.data.pipp) {
 				pip_popup.style.left = event.data.x + "px";
 				pip_popup.style.top = event.data.y + "px";
+			}
+			if (event.data.pippdirect) {
+				window.location = event.data.pippdirect;
 			}
 		}, false);
 		document.getElementById("pipp").style.display = "none";
