@@ -24,7 +24,7 @@ document.getElementById("pipp").onclick = function() {
 		let iframe = document.getElementById("pippiframe");
 		// get content window of iframe
 		let contentWindow = iframe.contentWindow;
-		contentWindow.args = {screenWidth: window.innerWidth, screenHeight: window.innerHeight - 32, width: 282, height: 166, iframe: true};
+		contentWindow.args = {screenWidth: window.innerWidth * 3.0/4.0, screenHeight: window.innerHeight - 32, width: 282, height: 166, iframe: true};
 		// listen for messages from iframe
 		window.addEventListener("message", function(event) {
 			if (event.data.pipp) {
