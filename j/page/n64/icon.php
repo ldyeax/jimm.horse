@@ -1,11 +1,5 @@
 <div id=n64Icon class=js-n64 data-n64-width=150 data-n64-height=150></div>
-<script>
-function n64Icon_click() {
-	j("n64");
-	return false;
-}
-</script>
-<a href="/n64" onclick="return n64Icon_click()">
+<a href="/n64" data-j>
 	<div id=n64IconLink style="position: absolute; z-index:5; top: 0; left: 0; height: 150px; width: 150px;"></div>
 </a>
 <script>
