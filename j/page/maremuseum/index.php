@@ -53,22 +53,27 @@ if (!window.maremuseuminterval) {
 	window.maremuseuminterval = setInterval(function() {
 		let opacity = 1;
 		let museum = document.getElementById("maremuseum");
-		let contentWindow = museum.contentWindow;
-		if (!contentWindow.maremousemoveadded) {
-			contentWindow.addEventListener("mousemove", (e) => {
-				window.maremuseummousex = e.clientX;
-				window.maremuseummousey = e.clientY;
-			});
-			contentWindow.maremousemoveadded = true;
-		}
-		if (museum) {
-			if (window.maremuseummousey < window.innerHeight - 150) {
-				opacity = 0;
-			} else {
-				//console.log(window.maremuseummousey);
+		try {
+			if (museum) {
+				let contentWindow = museum.contentWindow;
+				if (!contentWindow.maremousemoveadded) {
+					contentWindow.addEventListener("mousemove", (e) => {
+						window.maremuseummousex = e.clientX;
+						window.maremuseummousey = e.clientY;
+					});
+					contentWindow.maremousemoveadded = true;
+				}
+				if (museum) {
+					if (window.maremuseummousey < window.innerHeight - 150) {
+						opacity = 0;
+					} else {
+						//console.log(window.maremuseummousey);
+					}
+				}
 			}
+		} finally {
+			document.getElementById("footer").style.opacity = opacity;
 		}
-		document.getElementById("footer").style.opacity = opacity;
-	});
+	}, 100);
 }
 </script>
