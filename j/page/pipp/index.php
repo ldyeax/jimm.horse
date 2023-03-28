@@ -1,6 +1,4 @@
-<?php
-css("popup"); 
-?>
+<?php css("popup"); ?>
 
 <div>
 	<div id="pip_popup" style="position: absolute; left: 100px; top: 100px; display: none;">

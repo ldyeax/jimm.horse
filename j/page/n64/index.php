@@ -1,9 +1,4 @@
-<?php 
-
-require_once "$jroot/jlib.php";
-css("n64"); 
-
-?>
+<?php css("n64"); ?>
 <iframe id="N64Body" class="js-n64"></iframe>
 <script type=module>
 	import {n64} from "/lib/n64/n64.js";
