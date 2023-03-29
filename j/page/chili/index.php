@@ -21,5 +21,5 @@
 		<li>Leave in the fridge overnight
 	</ol>
 	<hr>
-	<div>I like to have it with generously buttered toast.</div>
+	<div>I like to have it with generously buttered <a href="http://automaticbeyondbelief.com" title="I use one of these toasters that I bought on ebay and fixed. Highly recommended">toast</a>.</div>
 </main>
