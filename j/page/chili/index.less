@@ -1,20 +1,44 @@
 #chiliParent {
 	text-align: center;
 	background-image: url("/img/chili.png");
-	// center bg image
 	background-position: center;
-	// no repeat
 	background-repeat: no-repeat;
 	height: 100vh;
-	
-	#chiliChild {
-		display: inline-block;
-		text-align: left;
-		background-color: #6C53D2bb;
-		color: white;
-		font-size: 24px;
-		padding: 12px;
-		margin-top: 12px;
-		border-radius: 12px;
+}
+
+
+#chili {
+	display: inline-block;
+	text-align: left;
+	background-color: #6C53D2bb;
+	color: white;
+	font-size: 24px;
+	padding: 12px;
+	margin-top: 12px;
+	border-radius: 12px;
+	h1 {
+		display: block;
+		text-align: center;
 	}
+	h1, h2 {
+		color: #f8b9ce;
+	}
+}
+
+#chilImg {
+	width: 80%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	object-fit: contain;
+
+	left: 50%;
+	transform: ~"translateX(-50%)";
+}
+
+#body {
+	align-items: center;
+	justify-content: center;
+	display: flex;
 }

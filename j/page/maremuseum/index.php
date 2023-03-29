@@ -34,15 +34,6 @@ https://derpibooru.org/images/36980
 
 -->
 
-<style>
-#maremuseum {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-</style>
 <iframe id=maremuseum src="/lib/maremuseum/maremuseum.html"></iframe>
 <script>
 if (!window.maremuseuminterval) {
@@ -51,7 +42,6 @@ if (!window.maremuseuminterval) {
 		window.maremuseummousey = e.clientY;
 	});
 	window.maremuseuminterval = setInterval(function() {
-		let opacity = 1;
 		let museum = document.getElementById("maremuseum");
 		try {
 			if (museum) {
@@ -64,16 +54,21 @@ if (!window.maremuseuminterval) {
 					contentWindow.maremousemoveadded = true;
 				}
 				if (museum) {
-					if (window.maremuseummousey < window.innerHeight - 150) {
-						opacity = 0;
+					//determine if mouse pointer is over footer
+					let rect = document.getElementById("footer").getBoundingClientRect();
+					let x = window.maremuseummousex;
+					let y = window.maremuseummousey;
+					if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+						museum.style.zIndex = "-1";
 					} else {
-						//console.log(window.maremuseummousey);
+						museum.style.zIndex = "1";
+						if (document.activeElement !== museum) {
+							museum.focus();
+						}
 					}
 				}
 			}
-		} finally {
-			document.getElementById("footer").style.opacity = opacity;
-		}
+		} finally {}
 	}, 100);
 }
 </script>

@@ -16,41 +16,48 @@ body {
 	background-attachment: fixed;
 	background-position: center;
 
+	display: flex;
+	flex-direction: column;
+
 	.backdrop-blur {
 		backdrop-filter: blur(15px);
 	}
+}
 
+html, body {
+	height: 100%;
+}
 
-	#header, #footer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+#body {
+	flex: 1 0 auto;
+}
 
-	#header {
-		height: 150px;
-		position: sticky;
-		top: 0;
-		width: 100%;
-	}
+#footer {
+	flex-shrink: 0;
 
-	#footer {
-		height: @footerHeight;
-		position: fixed;
-		bottom: 1px;
-		width: 100%;
-		z-index: 3;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 
-	iframe {
-		border-style: none;
-		outline-style: none;
-	}
+	flex-wrap: wrap;
+}
 
-	#body.loading {
-		display: none;
-	}
-	#bodyTmp {
-		display: none;
-	}
+iframe {
+	border-style: none;
+	outline-style: none;
+}
+
+#body.loading {
+	display: none;
+}
+#bodyTmp {
+	display: none;
+}
+
+hr {
+	color: pink;
+}
+
+.pixelated {
+	image-rendering: pixelated;
 }
