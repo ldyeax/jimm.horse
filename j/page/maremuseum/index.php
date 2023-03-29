@@ -33,8 +33,15 @@ https://www.deviantart.com/plainoasis/art/Moon-creek-857870188
 https://derpibooru.org/images/36980
 
 -->
-
-<iframe id=maremuseum src="/lib/maremuseum/maremuseum.html"></iframe>
+<noscript>
+	<style>#maremuseum{display: none;}</style>
+	<div class=center>
+		<h1 class=txt>The Mare Museum cannot be accessed without Javascript</h1>
+		<br>
+		<img width=400 src=/img/everyfoalingdaythislittlefilly.png alt="Anonfilly" title="Every foaling day this little filly just sits there and gives me this derpy look on her face">
+	</div>
+</noscript>
+<iframe id=maremuseum src="/lib/maremuseum/maremuseum.html" style="z-index: -1;"></iframe>
 <script>
 if (!window.maremuseuminterval) {
 	window.addEventListener("mousemove", (e) => {

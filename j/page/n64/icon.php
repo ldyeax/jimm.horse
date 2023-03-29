@@ -1,6 +1,9 @@
 <div id=n64Icon class=js-n64 data-n64-width=150 data-n64-height=150></div>
 <a href="/n64" data-j>
 	<div id=n64IconLink style="position: absolute; z-index:5; top: 0; left: 0; height: 150px; width: 150px;"></div>
+	<noscript>
+		<img src=/img/n64.webp alt="N64 icon" height=150 width=150>
+	</noscript>
 </a>
 <script>
 function updateN64Icon() {
