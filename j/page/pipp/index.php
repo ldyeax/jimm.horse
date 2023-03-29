@@ -1,5 +1,3 @@
-<?php css("popup"); ?>
-
 <div>
 	<div id="pip_popup" style="position: absolute; left: 100px; top: 100px; display: none;">
 		<div class="win98popup shadow" style="width: 292px; height: 195px;">

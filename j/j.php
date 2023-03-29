@@ -69,6 +69,11 @@ if (file_exists("page/$pageName/index.php")) {
 		echo "\"body\": ";
 		ob_start();
 	}
+
+	if (file_exists("page/$pageName/index.less")) {
+		cssPage($pageName);
+	}
+
 	require "page/$pageName/index.php";
 
 	if ($requestingJson) {

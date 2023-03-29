@@ -18,28 +18,37 @@ $less->setVariables(array(
 ));
 $less->setPreserveComments(true);
 $less->setFormatter($formatter);
+
 $files = scandir("$jroot/less");
 
-//echo "<table>";
-
 foreach ($files as $file) {
-	//echo "<tr>";
-	//echo "<td>$file</td>";
 	if (strlen($file) >= 5 && substr($file, -5) == ".less") {
 		$cssFile = substr($file, 0, -5);
 		$less->checkedCompile("$jroot/less/$file", "$jroot/css/$cssFile.css");
-		//echo "<td>$jroot/less/$file</td>";
-		//echo "<td>$jroot/css/$cssFile.css</td>";
 	}
-	//echo "</tr>";
 }
-//echo "</table>";
+
+// page/*/index.less automatically included in page
+$files = scandir("$jroot/page");
+foreach ($files as $file) {
+	if (file_exists("$jroot/page/$file/index.less")) {
+		$less->checkedCompile("$jroot/page/$file/index.less", "$jroot/css/page_$file.css");
+	}
+}
+
 #endregion
 
 function css($name) {
 	global $jroot;
 	echo "<style>";
 	echo file_get_contents("$jroot/css/$name.css");
+	echo "</style>";
+}
+
+function cssPage($pageName) {
+	global $jroot;
+	echo "<style>";
+	echo file_get_contents("$jroot/css/page_$pageName.css");
 	echo "</style>";
 }
 

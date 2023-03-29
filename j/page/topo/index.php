@@ -1,5 +1,3 @@
-<?php css("topo"); ?>
-
 <canvas width=640 height=480 id=cnvMain></canvas>
 <canvas width=320 height=320 id=cnvMap></canvas>
 <script type=module>
