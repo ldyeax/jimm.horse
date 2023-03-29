@@ -39,21 +39,27 @@
 
 	z-index: 2;
 
+	font-family: "Celestia Medium Redux", Tahoma, sans-serif;
+	font-size: 32px;
+
+	color: @celestiaPurple;
+	//-webkit-text-stroke: 1px white;
+
 	//pointer-events: none;
 
 	div {
 		margin-top: 10px;
 	}
 	div > span {
-		padding-top: 5px;
-		padding-bottom: 5px;
+		padding: 5px;
 		border-radius: 10px;
+		background-color: #6C53D2BB;
+		&, & a {
+			color: white;
+		}
 
-		font-size: 32px;
-		font-family: "Celestia Medium Redux", Tahoma, sans-serif;
-	
-		color: #6C53D2;
-		backdrop-filter: blur(15px);
+		//backdrop-filter: blur(15px);
+		//-webkit-backdrop-filter: blur(15px);
 	}
 
 }

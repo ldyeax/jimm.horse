@@ -14,7 +14,8 @@ $formatter->indentChar = "\t";
 $less = new \lessc;
 $less->setVariables(array(
 	"headerHeight" => "0px",
-	"footerHeight" => "150px"
+	"footerHeight" => "150px",
+	"celestiaPurple" => "#6C53D2"
 ));
 $less->setPreserveComments(true);
 $less->setFormatter($formatter);
