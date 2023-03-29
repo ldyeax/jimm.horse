@@ -36,9 +36,15 @@ https://derpibooru.org/images/36980
 <noscript>
 	<style>#maremuseum{display: none;}</style>
 	<div class=center>
-		<h1 class=txt>The Mare Museum cannot be accessed without Javascript</h1>
+		<h1 class=txt>The full Mare Museum cannot be accessed without Javascript</h1>
 		<br>
 		<img width=400 src=/img/everyfoalingdaythislittlefilly.png alt="Anonfilly" title="Every foaling day this little filly just sits there and gives me this derpy look on her face">
+		<br>
+		<h2 class=txt>Refresh the page to traverse the noscript Mare Muesum</h2>
+		<br>
+		<img src=/lib/maremuseum/randommare.php?1 width=350 alt="Random mare 1" title="inere">
+		<img src=/lib/maremuseum/randommare.php?2 width=350 alt="Random mare 2" title="csfer">
+		<img src=/lib/maremuseum/randommare.php?3 width=350 alt="Random mare 3" title="aeov!">
 	</div>
 </noscript>
 <iframe id=maremuseum src="/lib/maremuseum/maremuseum.html" style="z-index: -1;"></iframe>
