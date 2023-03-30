@@ -1,4 +1,4 @@
-<img src="/img/chili.png" alt="Picture of chili" id=chilImg>
+<img src="/img/chili.webp" alt="Picture of chili" id=chilImg>
 
 <main id=chili>
 	<h1>Jimm's Venison Chili</h1>
