@@ -3,8 +3,8 @@ header("HTTP/1.0 404 Not Found");
 global $requestingJson;
 if (!$requestingJson) {
 ?>
-<html lang=en>
 <!doctype html>
+<html lang=en>
 <!--
 Annie Vorchine credit Tiny Jasmini
 https://derpibooru.org/search?q=oc%3Aannie%20vorechine
