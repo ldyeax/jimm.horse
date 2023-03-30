@@ -34,7 +34,6 @@ https://derpibooru.org/images/36980
 
 -->
 <noscript>
-	<style>#maremuseum{display: none;}</style>
 	<div class=center>
 		<h1 class=txt>The full Mare Museum cannot be accessed without Javascript</h1>
 		<br>

@@ -1,16 +1,3 @@
-
-<style>
-canvas {
-	image-rendering: optimizeSpeed;
-	image-rendering: crisp-edges;
-	image-rendering: -moz-crisp-edges;
-	image-rendering: -webkit-optimize-contrast;
-	image-rendering: optimize-contrast;
-	-ms-interpolation-mode: nearest-neighbor;
-	image-rendering:-o-crisp-edges;
-	background-color: white;
-}
-</style>
 <canvas id=input></canvas>
 <canvas id=output></canvas>
 <img id="imageMapSrc" src="/img/jimm.png" usemap="#outputMap" width=256>

@@ -1,4 +1,5 @@
 <!doctype html>
+<meta charset=utf-8>
 <!--
 kO000K0OOO00KKKK00KKXXKkk000OOOOOKXXXKOxk00K0kOOOOkxxkOOO00KXNXXK00OO0KXXXKKKKKKKKKKKO0XKOxxkOO0OOOO
 0OOO0K0OOO0K0KKKK00KKK000KKKKKKKXXK0OOkdolllc::;;;:;;;:::clodkO0XXXNNXXNNXXXXXXK000OxxOKKOxdxk0XKOOO
@@ -29,7 +30,7 @@ oxkkkkOkddkkkkdooooolllccc::::ldxkkOOOO0KKKKKKKKXXXK0kdoc::::cllodxxdooooollccll
 :::::::codxkkkxddddddxxxxxxdolc:;,'.''',;:cllxKXXKK0Oxoc:,,'',;:codxkOO0000OOkxxkxddxxdoc:,,''''''',
 ;::;;;;::clodxxdxkkddxxxxkkOkxdolc:;,'',''',,:dxdolc;,'..',;:coxkO0KK0OO00O000OkOOkdoc:;,'''',,,,,,,
 -->
-<meta charset=utf-8>
+
 <script>
 // window.addEventListener("load", function() {
 // 	// todo: more general
@@ -105,8 +106,8 @@ async function loadPageContents(pageName) {
 	}
 
 	tmpElement.innerHTML = json.header;
-	let toRemove = document.getElementsByClassName(HEADER_CLASS);
-	console.log("toRemove: ", toRemove.length, " elements")
+	let toRemove = document.querySelectorAll(`.${HEADER_CLASS}, noscript`);
+	// console.log("toRemove: ", toRemove.length, " elements")
 	for (let i = 0; i < toRemove.length; i++) {
 		toRemove[i].remove();
 	}

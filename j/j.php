@@ -47,17 +47,25 @@ if ($requestingJson) {
 
 // check if page/$pageName.php exists
 if (file_exists("page/$pageName/index.php")) {
+	#region header
+
 	if (!$requestingJson) {
 		require "component/header1.php";
 	} else {
 		echo "\n\t\"header\": ";
 		ob_start();
 	}
+
 	if (file_exists("page/$pageName/header.php")) {
 		require "page/$pageName/header.php";
 	} else {
-		echo("<title class=\"jHeader\">$pageName</title>");
+		echo("\n<title class=\"jHeader\">$pageName</title>\n");
 	}
+
+	if (file_exists("page/$pageName/index.less")) {
+		cssPage($pageName, true);
+	}
+
 	if ($requestingJson) {
 		echo json_encode(ob_get_clean());
 		echo ",\n\t";
@@ -65,13 +73,12 @@ if (file_exists("page/$pageName/index.php")) {
 		require "component/header2.php";
 	}
 
+	#endregion header
+
+	#region body
 	if ($requestingJson) {
 		echo "\"body\": ";
 		ob_start();
-	}
-
-	if (file_exists("page/$pageName/index.less")) {
-		cssPage($pageName);
 	}
 
 	require "page/$pageName/index.php";

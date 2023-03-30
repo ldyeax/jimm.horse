@@ -1,5 +1,4 @@
 <noscript>
-	<style>.js-n64{display: none !important;}</style>
 	<div class=center>
 		<h1 class=txt>Nintendo 64 cannot be accessed without Javascript</h1>
 		<br>

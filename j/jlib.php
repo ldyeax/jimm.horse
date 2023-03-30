@@ -46,9 +46,13 @@ function css($name) {
 	echo "</style>";
 }
 
-function cssPage($pageName) {
+function cssPage($pageName, $jHeader=false) {
 	global $jroot;
-	echo "<style>";
+	$jHeaderPart = "";
+	if ($jHeader) {
+		$jHeaderPart = " class=jHeader ";
+	}
+	echo "<style$jHeaderPart>";
 	echo file_get_contents("$jroot/css/page_$pageName.css");
 	echo "</style>";
 }
