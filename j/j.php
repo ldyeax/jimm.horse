@@ -59,7 +59,7 @@ if (file_exists("page/$pageName/index.php")) {
 	if (file_exists("page/$pageName/header.php")) {
 		require "page/$pageName/header.php";
 	} else {
-		echo("\n<title class=\"jHeader\">$pageName</title>\n");
+		echo("\n<title class=\"jHeader\" >$pageName</title>\n");
 	}
 
 	if (file_exists("page/$pageName/index.less")) {
