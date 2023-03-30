@@ -1,3 +1,4 @@
+<html lang="en">
 <!doctype html>
 <meta charset=utf-8>
 <!--
