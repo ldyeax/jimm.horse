@@ -3,6 +3,7 @@ header("HTTP/1.0 404 Not Found");
 global $requestingJson;
 if (!$requestingJson) {
 ?>
+<html lang=en>
 <!doctype html>
 <!--
 Annie Vorchine credit Tiny Jasmini
