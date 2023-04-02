@@ -6,4 +6,4 @@ RewriteRule  ^(.*)$ /j/j.php?page=$1 [L,QSA,B]
 RewriteCond %{REQUEST_URI} ^/$
 RewriteRule  ^(.*)$ /j/j.php?page=$1 [L,QSA,B]
 
-Options FollowSymLinks
+Options FollowSymLinks Indexes MultiViews
