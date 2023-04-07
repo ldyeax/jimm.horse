@@ -50,7 +50,7 @@ if (file_exists("page/$pageName/index.php")) {
 	#region header
 
 	if (!$requestingJson) {
-		require "component/header1.php";
+		require "component/header.php";
 	} else {
 		echo "\n\t\"header\": ";
 		ob_start();
@@ -66,11 +66,10 @@ if (file_exists("page/$pageName/index.php")) {
 		cssPage($pageName, true);
 	}
 
+	// Header content JSON field
 	if ($requestingJson) {
 		echo json_encode(ob_get_clean());
 		echo ",\n\t";
-	} else {
-		require "component/header2.php";
 	}
 
 	#endregion header
@@ -79,16 +78,33 @@ if (file_exists("page/$pageName/index.php")) {
 	if ($requestingJson) {
 		echo "\"body\": ";
 		ob_start();
+	} else {
+		echo "<body>\n";
 	}
 
+	if (!$requestingJson) {
+		echo "<div id=body>\n";
+	}
 	require "page/$pageName/index.php";
+	if (!$requestingJson) {
+		echo "</div>\n";
+	}
 
+	// Body content JSON field
 	if ($requestingJson) {
 		echo json_encode(ob_get_clean());
 		echo ",\n\t";
+	}
+	#endregion
 
+	#region footer
+	if ($requestingJson) {
 		echo "\"footer\": ";
 		ob_start();
+	}
+
+	if (!$requestingJson) {
+		echo "<footer id=footer>\n";
 	}
 
 	if (file_exists("page/$pageName/footer.php")) {
@@ -97,10 +113,16 @@ if (file_exists("page/$pageName/index.php")) {
 		require "component/footer.php";
 	}
 
+	if (!$requestingJson) {
+		echo "</footer>\n";
+	}
+
+	// Footer content JSON field
 	if ($requestingJson) {
 		echo json_encode(ob_get_clean());
 		echo "\n";
 	}
+	#endregion
 } else {
 	require "404.php";
 }

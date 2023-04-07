@@ -8,12 +8,19 @@
 <script>
 function updateN64Icon() {
 	let n64Icon = document.getElementById("n64Icon");
-	let n64IconLink = document.getElementById("n64IconLink");
-	n64IconLink.style.left = n64Icon.offsetLeft + "px";
-	n64IconLink.style.top = n64Icon.offsetTop + "px";
+	if (n64Icon) {
+		let n64IconLink = document.getElementById("n64IconLink");
+		n64IconLink.style.left = n64Icon.offsetLeft + "px";
+		n64IconLink.style.top = n64Icon.offsetTop + "px";
+	}
 	requestAnimationFrame(updateN64Icon);
 }
-updateN64Icon();
+
+if (!window.updatingN64) {
+	updateN64Icon();
+}
+
+window.updatingN64 = true;
 </script>
 <script type=module>
 	import {n64} from "/lib/n64/n64.js";
