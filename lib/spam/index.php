@@ -61,6 +61,10 @@ img {
 	font-family: sans-serif;
 	font-size: 1em;
 }
+a { 
+	font-family: "Times New Roman", Times, serif;
+	font-size: 1.3em !important;
+}
 .main {
 	text-align: center;
 	display: flex;
@@ -75,6 +79,11 @@ img {
 .ta-right {
 	text-align: right;
 }
+.fdcol {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 </style>
 <body>
 <div class=main>
@@ -82,28 +91,28 @@ img {
 		<div>
 			<img width=100 class=uglysonofabitch src=uglysonofabitch.webp alt="ugly son of a bitch">
 		</div>
-		<div>
+		<div class=fdcol>
 			<div class="white text1">&lt; THIS UGLY</div> 
 			<div class="red text2">SON OF A BITCH</div>
 		</div>
 	</div>
 	<div class="bg-black">
 		<div class="white text3">Is Fucking</div>
-		<div class="text4">
-			<div>
-				<span class=red>Super Hot</span> <span class=white>Stallions</span>
-			</div>
-			<div class=ta-right>
-				<span class=white>and basically,</span>
-			</div>
+		<div class=text4>
+			<span class=red>Super Hot</span> <span class=white>Stallions</span>
+		</div>
+		<div class="ta-right text4">
+			<span class=white>and basically,</span>
 		</div>
 		<div class="yellow text5">
 			<u>you are fucking stupid</u>
 		</div>
 	</div>
 	<div class=bg-white>
-		<a href="https://www.youtube.com/watch?v=pJYzT_-klgM" alt="How">
-			how? ...Just Watch The Free Video &gt;
-		</a>
+		<b>
+			<a href="https://www.youtube.com/watch?v=pJYzT_-klgM">
+				How? ...Just Watch The Free Video &gt;
+			</a>
+		</b>
 	</div>
 </div>
