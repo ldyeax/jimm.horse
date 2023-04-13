@@ -29,6 +29,22 @@
 // 	}
 // });
 
+function getCookie(name) {
+	let value = "; " + document.cookie;
+	let parts = value.split("; " + name + "=");
+	if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+function setCookie(name, value, days) {
+	let expires = "";
+	if (days) {
+		let date = new Date();
+		date.setTime(date.getTime() + (days*24*60*60*1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
 function resolvePageName(pageName) {
 	while (pageName.length > 0 && pageName[0] == "/") {
 		pageName = pageName.substring(1);
