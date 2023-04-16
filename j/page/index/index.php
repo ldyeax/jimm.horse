@@ -5,7 +5,7 @@
 	</div>
 
 	<div class=sidecol>
-		<a href="chili">
+		<a data-j href="/chili">
 			<img class=pixelated src="/img/angelcooking.gif" width=128 alt="Link to chili" title="Chili recipe">
 		</a>
 	</div>
