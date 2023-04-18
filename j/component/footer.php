@@ -15,6 +15,3 @@
 		}
 	}
 ?>
-<div class=icon>
-
-</div>
