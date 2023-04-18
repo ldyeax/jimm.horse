@@ -1,7 +1,7 @@
 
-<canvas id=input></canvas>
-<canvas id=output></canvas>
-<img id="imageMapSrc" src="/img/nsfw_for_imagemap.webp" usemap="#outputMap">
+<canvas id=input style="image-rendering:pixelated;" ></canvas>
+<canvas id=output style="image-rendering:pixelated;" ></canvas>
+<img id="imageMapSrc" style="image-rendering:pixelated;" src="/img/jimmexcited_map_128.png" usemap="#outputMap">
 <map name="outputMap">
     <area id="area" shape="poly" coords="0,0,10,0,10,10" alt="Test" href="/">
 </map>
@@ -25,8 +25,8 @@ ctxOut.webkitImageSmoothingEnabled = false;
 
 
 async function test() {
-	img.height = 150;
-	img.width = 165;
+	img.height = 128;
+	img.width = 128;
 
     cnvInput.width = img.width;
     cnvInput.height = img.height;
@@ -40,7 +40,7 @@ async function test() {
 	let output = await tracer.calculatePolygon(true);
 
     let s = "";
-    for (let i = 0; i < output.length; i+=16) { 
+    for (let i = 0; i < output.length*3/4; i+=4) { 
         s += output[i].x
         s += ",";
         s += output[i].y

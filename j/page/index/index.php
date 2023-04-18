@@ -8,12 +8,15 @@
 	</div>
 
 	<div class=sidecol>
-		<a href="http://armchair.dashtel.ca/~jimm/index.html">
-			<img class=pixelated src="/img/jimmexcited.gif" width=128 alt="Link to my NetBSD site" title="NetBSD Web Zone">
-		</a>
 		<a data-j href="/chili">
 			<img class=pixelated src="/img/angelcooking.gif" width=128 alt="Link to chili" title="Chili recipe">
 		</a>
+		<img class=pixelated src="/img/jimmexcited.gif" width=128 usemap="#bsdmap">
+		<map name="bsdmap">
+			<area id="bsdmap" shape="poly" 
+			coords="69,6,73,6,77,6,81,6,85,6,85,10,89,10,93,10,95,12,95,16,97,18,97,22,99,24,101,26,101,30,103,32,103,36,103,40,101,42,92,43,89,45,89,49,89,51,87,53,85,55,83,57,81,59,81,63,81,67,81,71,81,75,81,79,86,78,90,78,92,80,94,82,95,85,95,89,95,93,95,97,95,101,93,103,93,105,89,109,87,111,84,113,78,115,75,112,74,113,73,117,73,121,73,123,64,125,56,125,48,121,40,121,32,121,30,113,26,105,28,100,26,97,22,93,24,88,26,82,20,75,20,67,22,62,26,60,30,58,32,52,36,52,39,53,40,47,40,40,44,36,46,30,48,24,50,18,52,12,55,10,57,12" 
+			alt="Link to my NetBSD site" title="Link to my NetBSD site" href="http://armchair.dashtel.ca/~jimm/index.html">
+		</map>
 	</div>
 
 	<main>
