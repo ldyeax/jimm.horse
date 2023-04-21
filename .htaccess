@@ -7,3 +7,7 @@ RewriteCond %{REQUEST_URI} ^/$
 RewriteRule  ^(.*)$ /j/j.php?page=$1 [L,QSA,B]
 
 Options FollowSymLinks Indexes MultiViews
+
+#deny any .git folder
+RedirectMatch 404 /\.git
+ErrorDocument 404 /j/404.php
