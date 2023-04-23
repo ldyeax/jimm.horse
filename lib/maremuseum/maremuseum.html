@@ -80,8 +80,7 @@ body, html {
 #mare-controls {
 	position: absolute;
 	top: 8px;
-	left: 0;
-	width: calc(100vw - 8px);
+	right: 8px;
 	padding: 10px;
 	z-index: 100;
 
@@ -119,6 +118,13 @@ body, html {
 	text-align: center;
 	width: 128px;
 	max-width: 128px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/* background-image: url("asset/marbledance_320.gif");
+	background-size: cover; */
 }
 
 #mareMusicContainer button {
@@ -128,13 +134,15 @@ body, html {
 	background: none;
 	font-size: 32px;
 	max-width: 32px;
+	border-style: none;
+	color: white;
 }
 
 #mareMusicContainer button:hover {
 	background: none;
 }
 
-#mare-controls input[type=range] {
+#mareMusicContainer input[type=range] {
 	width: 100px;
 }
 
@@ -159,12 +167,14 @@ body, html {
 	<button id=btnMareWander>Wander</button>
 	<button id=btnMareMural>Mural</button>
 	<button id=btnMareStop>Stop</button>
-	<div id=mareMusicContainer>
-		<input type=range min=0 max=100 id=rangeMareMusicVolume value=100>
-		<br>
-		<button id=btnMareStopMusic>⏹</button>
-		<button id=btnMareStartMusic>▶</button>
-	</div>
+</div>
+<div id=mareMusicContainer style="display: none;">
+	<input type=range min=0 max=100 id=rangeMareMusicVolume value=100>
+	<br>
+	<button id=btnMareStopMusic>⏹</button>
+	<button id=btnMareStartMusic>▶</button>
+	<!-- <br>
+	<img src=asset/marbledance_320.gif height=64px alt="Marble Pie MLP dancing"> -->
 </div>
 <div id=loading-container>
 	<div id=loading-text>Loading<br>Controls: WASD or touch</div>
@@ -214,9 +224,10 @@ ImageAsset.shader = shader;
 
 await maze.loadAssets();
 document.getElementById("mare-controls").style.display = "";
+document.getElementById("mareMusicContainer").style.display = "";
 window.museum = maze.instantiate(Scene, {
 	onMusicStarted: () => {
-		loadingContainer.removeChild(loadingTextDiv);
+		loadingContainer.parentElement.removeChild(loadingContainer);
 	},
 	btnMareMural: document.getElementById("btnMareMural"),
 	btnMareWander: document.getElementById("btnMareWander"),
