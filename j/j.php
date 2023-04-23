@@ -39,6 +39,16 @@ if (strlen($pageName) == 0) {
 }
 #endregion
 
+#region nsfw check
+$sfwMode = false;
+// if in "sfw" subdomain
+if (strpos($_SERVER['HTTP_HOST'], "sfw.") === 0) {
+	$sfwMode = true;
+}
+$isNSFWPage = file_exists("page/$pageName/nsfw");
+$rejectForNSFW = $sfwMode && $isNSFWPage;
+#endregion
+
 #region find page and render
 
 if ($requestingJson) {
@@ -46,7 +56,7 @@ if ($requestingJson) {
 }
 
 // check if page/$pageName.php exists
-if (file_exists("page/$pageName/index.php")) {
+if (!$rejectForNSFW && file_exists("page/$pageName/index.php")) {
 	#region header
 
 	if (!$requestingJson) {
