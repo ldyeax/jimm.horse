@@ -97,7 +97,6 @@ body, html {
 #mare-controls button {
 	display: inline-block;
 	width: 128px;
-	width: 128px;
 
 	background-color: #6C53D2;
 	border-radius: 8px;
@@ -114,6 +113,34 @@ body, html {
 
 #mare-controls button:hover {
 	background-color: #8C73F2;
+}
+
+#mareMusicContainer {
+	text-align: center;
+}
+
+#mareMusicContainer button {
+	width: 14px;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
+
+#mareMusicContainer button:hover {
+	background: none;
+}
+
+#mare-controls input[type=range] {
+	width: 128px;
+}
+
+#btnMareStopMusic {
+	float: left;
+	margin-left: 8px !important;
+}
+#btnMareStartMusic {
+	float: right;
+	margin-right: 8px !important;
 }
 
 </style>
@@ -137,6 +164,12 @@ body, html {
 	<button id=btnMareWander>Wander</button>
 	<button id=btnMareMural>Mural</button>
 	<button id=btnMareStop>Stop</button>
+	<div id=mareMusicContainer>
+		<input type=range min=0 max=100 id=rangeMareMusicVolume value=100>
+		<br>
+		<button id=btnMareStopMusic>⏹</button>
+		<button id=btnMareStartMusic>▶</button>
+	</div>
 </div>
 <div id=loading-container>
 	<div id=loading-text>Loading<br>Controls: WASD or touch</div>
@@ -192,7 +225,10 @@ window.museum = maze.instantiate(Scene, {
 	},
 	btnMareMural: document.getElementById("btnMareMural"),
 	btnMareWander: document.getElementById("btnMareWander"),
-	btnMareStop: document.getElementById("btnMareStop")
+	btnMareStop: document.getElementById("btnMareStop"),
+	btnMareStopMusic: document.getElementById("btnMareStopMusic"),
+	btnMareStartMusic: document.getElementById("btnMareStartMusic"),
+	rangeMareMusicVolume: document.getElementById("rangeMareMusicVolume")
 });
 maze.start(document.getElementById("maremuseum"));
 </script>
