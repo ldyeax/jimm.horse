@@ -92,7 +92,7 @@ window.enableNSFWMode = function() {
 <img height=150 src="/img/nsfw.webp" alt="NSFW mode" class="icon" data-source="https://derpibooru.org/images/1502275" usemap="#nsfwMap" >
 <map name="nsfwMap">
     <area id="area" shape="poly" coords="29,1,45,1,59,3,72,6,84,6,94,12,102,20,114,18,127,11,143,11,143,21,150,30,158,38,163,49,163,65,158,78,153,92,143,104,139,101,134,73,123,70,118,84,114,99,109,113,99,125,94,139,76,148,55,138,48,123,30,109,35,85,27,74,10,82,1,62,6,38,16,23,28,15,35,10" 
-	alt="Bat pony mare" 
+	alt="Activate NSFW Mode" 
 	href="#"
 	onclick="window.enableNSFWMode(); return false;"
 	>
