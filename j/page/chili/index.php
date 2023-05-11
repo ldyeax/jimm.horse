@@ -1,4 +1,7 @@
-<img src="/img/chili.webp" alt="Picture of chili" id=chilImg>
+<picture>
+	<source srcset="/img/chili.webp" type="image/webp">
+	<img id=chilImg src="/img/chili.png" alt="Picture of chili">
+</picture>
 
 <main id=chili>
 	<h1>Jimm's Venison Chili</h1>

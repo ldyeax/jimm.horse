@@ -20,7 +20,7 @@ if ($requestingJson) {
 }
 
 #region page name processing
-$allowed = "abcdefghijklmnopqrstuvqxyz123456789_";
+$allowed = "abcdefghijklmnopqrstuvqxyz1234567890_-";
 $parts = array();
 $pageName = $_GET['page'];
 $tmp = "";
