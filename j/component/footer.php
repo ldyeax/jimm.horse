@@ -1,7 +1,7 @@
 <?php
 	global $jroot;
 	global $sfwMode;
-	// list folders under $jroot/page
+	// todo: ordering?
 	$files = scandir("$jroot/page");
 	foreach ($files as $file) {
 		if ($file[0] == ".") {

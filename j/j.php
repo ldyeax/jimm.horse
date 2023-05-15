@@ -20,7 +20,8 @@ if ($requestingJson) {
 }
 
 #region page name processing
-$allowed = "abcdefghijklmnopqrstuvqxyz123456789_";
+$allowed = "abcdefghijklmnopqrstuvqxyz1234567890_-";
+$parts = array();
 $pageName = $_GET['page'];
 $tmp = "";
 $len = min(32, strlen($pageName));
@@ -28,15 +29,28 @@ for ($i = 0; $i < $len; $i++) {
 	$c = $pageName[$i];
 	if ($c === ".") {
 		break;
-	}
-	if (strpos($allowed, $c) !== false) {
+	} else if ($c === "/") {
+		$parts[] = $tmp;
+		$tmp = "";
+	} else if (strpos($allowed, $c) !== false) {
 		$tmp .= $c;
 	}
 }
-$pageName = $tmp;
-if (strlen($pageName) == 0) {
-	$pageName = "index";
+
+if (strlen($tmp) > 0) {
+	$parts[] = $tmp;
 }
+if (count($parts) === 0 || strlen($parts[0]) === 0) {
+	$pageName = "index";
+} else {
+	$pageName = $parts[0];
+}
+
+$jArgs = [];
+if (count($parts) > 1) {
+	$jArgs = array_slice($parts, 1);
+}
+
 #endregion
 
 #region nsfw check
@@ -134,7 +148,7 @@ if (!$rejectForNSFW && file_exists("page/$pageName/index.php")) {
 	}
 	#endregion
 } else {
-	require "404.php";
+	j404();
 }
 
 if ($requestingJson) {

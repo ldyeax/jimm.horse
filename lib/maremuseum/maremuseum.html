@@ -80,8 +80,7 @@ body, html {
 #mare-controls {
 	position: absolute;
 	top: 8px;
-	left: 0;
-	width: calc(100vw - 8px);
+	right: 8px;
 	padding: 10px;
 	z-index: 100;
 
@@ -96,7 +95,6 @@ body, html {
 
 #mare-controls button {
 	display: inline-block;
-	width: 128px;
 	width: 128px;
 
 	background-color: #6C53D2;
@@ -114,6 +112,41 @@ body, html {
 
 #mare-controls button:hover {
 	background-color: #8C73F2;
+}
+
+#mareMusicContainer {
+	text-align: center;
+	width: 256px;
+	max-width: 256px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/* background-image: url("asset/marbledance_320.gif");
+	background-size: cover; */
+
+	opacity: 0.8;
+}
+
+#mareMusicContainer button {
+	padding: 0;
+	margin-left: 16px;
+	margin-right: 16px;
+	background: none;
+	font-size: 52px;
+	max-width: 52px;
+	border-style: none;
+	color: white;
+}
+
+#mareMusicContainer button:hover {
+	background: none;
+}
+
+#mareMusicContainer input[type=range] {
+	width: 200px;
+	margin-bottom: 16px;
 }
 
 </style>
@@ -137,6 +170,14 @@ body, html {
 	<button id=btnMareWander>Wander</button>
 	<button id=btnMareMural>Mural</button>
 	<button id=btnMareStop>Stop</button>
+</div>
+<div id=mareMusicContainer style="display: none;">
+	<input type=range min=0 max=100 id=rangeMareMusicVolume value=100>
+	<br>
+	<button id=btnMareStopMusic>⏹</button>
+	<button id=btnMareStartMusic>▶</button>
+	<!-- <br>
+	<img src=asset/marbledance_320.gif height=64px alt="Marble Pie MLP dancing"> -->
 </div>
 <div id=loading-container>
 	<div id=loading-text>Loading<br>Controls: WASD or touch</div>
@@ -186,13 +227,17 @@ ImageAsset.shader = shader;
 
 await maze.loadAssets();
 document.getElementById("mare-controls").style.display = "";
+document.getElementById("mareMusicContainer").style.display = "";
 window.museum = maze.instantiate(Scene, {
 	onMusicStarted: () => {
-		loadingContainer.removeChild(loadingTextDiv);
+		loadingContainer.parentElement.removeChild(loadingContainer);
 	},
 	btnMareMural: document.getElementById("btnMareMural"),
 	btnMareWander: document.getElementById("btnMareWander"),
-	btnMareStop: document.getElementById("btnMareStop")
+	btnMareStop: document.getElementById("btnMareStop"),
+	btnMareStopMusic: document.getElementById("btnMareStopMusic"),
+	btnMareStartMusic: document.getElementById("btnMareStartMusic"),
+	rangeMareMusicVolume: document.getElementById("rangeMareMusicVolume")
 });
 maze.start(document.getElementById("maremuseum"));
 </script>

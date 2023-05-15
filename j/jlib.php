@@ -67,4 +67,8 @@ function scaleImageMap($imageMap, $xScale, $yScale) {
 	return implode(",", $values);
 }
 
+function j404() {
+	require "404.php";
+}
+
 ?>
