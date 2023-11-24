@@ -7,6 +7,6 @@
 [submodule "lib/Win98Modal"]
 	path = lib/Win98Modal
 	url = https://github.com/ldyeax/Win98Modal
-[submodule "lib/goals"]
-	path = lib/goals
-	url = https://github.com/ldyeax/goals
+[submodule "lib/goal"]
+	path = lib/goal
+	url = https://github.com/ldyeax/goal
