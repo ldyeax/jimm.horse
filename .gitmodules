@@ -9,4 +9,4 @@
 	url = https://github.com/ldyeax/Win98Modal
 [submodule "lib/goal"]
 	path = lib/goal
-	url = https://github.com/ldyeax/goal
+	url = git@github.com:ldyeax/goal.git
