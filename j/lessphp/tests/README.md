@@ -1,4 +1,6 @@
-lessphp uses [PHPUnit](https://github.com/sebastianbergmann/phpunit/) for its tests
+lessphp uses [PHPUnit](https://github.com/sebastianbergmann/phpunit/) for its tests.
+The development tools require PHP 7.2 or newer. From the lessphp directory, run
+`composer install` followed by `composer test` to run the tests and coding-standard checks.
 
 * `InputTest.php` iterates through all the less files in `inputs/`, compiles
   them, then compares the result with the respective file in `outputs/`.
