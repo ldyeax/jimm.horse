@@ -2,7 +2,8 @@
 <div id=homepage>
 	<div id=overlay1>
 		<!--<img class="cookie_webp" src="/img/cookie_transparent.webp" alt="My OC floating on a cookie by Tiny Jasmini" data-source="https://derpibooru.org/images/3055814">-->
-		<img src="/img/jimm.webp" data-source="https://derpibooru.org/images/3022375" alt="Homepage">
+		<!-- <img src="/img/jimm.webp" data-source="https://derpibooru.org/images/3022375" alt="Homepage"> -->
+		<img src="/img/kate_hoof_cropped.png" alt="Homepage">
 	</div>
 	<div id=overlay2 aria-hidden="true">
 	</div>
