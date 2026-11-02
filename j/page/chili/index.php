@@ -4,7 +4,7 @@
 </picture>
 
 <main id=chili>
-	<h1>Jimm's Venison Chili</h1>
+	<h1>Kate's Venison Chili</h1>
 	<h2>Ingredients:</h2>
 	<ul>
 		<li>1.5lbs cubed venison (other meats should be good too, but I like to use my own venison)

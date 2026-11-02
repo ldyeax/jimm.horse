@@ -1,1 +1,1 @@
-<title class="jHeader" >Jimm's Venison Chili</title>
+<title class="jHeader" >Kate's Venison Chili</title>
